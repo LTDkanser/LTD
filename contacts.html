@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LDTKanser - Контакты</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' },
+                        accent: { 400: '#6366f1', 500: '#4f46e5', 600: '#4338ca' }
+                    },
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Rubik', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-card { background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.04) 100%); border: 1px solid rgba(99,102,241,0.15); transition: all 0.3s ease; }
+        .glow-card:hover { border-color: rgba(99,102,241,0.4); box-shadow: 0 0 30px rgba(99,102,241,0.1); transform: translateY(-4px); }
+        .divider-gradient { background: linear-gradient(to right, transparent, #6366f1, transparent); height: 1px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+        /* Page transitions */
+        @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { animation: pageIn 0.4s ease-out; }
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="LDTKanser" class="h-8 w-auto"><span class="text-2xl font-extrabold gradient-text tracking-tight">LDTKanser</span></a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Главная" data-en="Home">Главная</a>
+                <a href="services.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Услуги" data-en="Services">Услуги</a>
+                <a href="game-engines.html" class="text-gray-400 hover:text-white transition text-sm font-medium">Game Engines</a>
+                <a href="index.html#tariffs" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Подписки" data-en="Subscriptions">Подписки</a>
+                <a href="cases.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Кейсы" data-en="Cases">Кейсы</a>
+                <a href="contacts.html" class="text-white text-sm font-medium" data-ru="Контакты" data-en="Contacts">Контакты</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <button id="langToggle" class="px-3 py-1.5 border border-accent-400/40 text-accent-400 rounded-lg hover:bg-accent-400/10 transition text-sm font-semibold">🇺🇸 English</button>
+                    <div id="langDropdown" class="hidden absolute right-0 top-full mt-2 py-2 w-40 rounded-xl shadow-2xl z-50" style="background: rgba(18,18,26,0.98); border: 1px solid rgba(99,102,241,0.2); backdrop-filter: blur(20px);">
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-accent-400 bg-accent-400/20 transition hover:bg-accent-400/10" data-lang="en">🇺🇸 English</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="ru">🇷🇺 Русский</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="pt-32 pb-16 relative overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+        <img src="hero-bg.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(18,18,26,0.85) 100%);"></div>
+        <div class="particle absolute top-12 left-[10%] w-1.5 h-1.5 bg-accent-400/20 rounded-full" style="animation-delay: 0.4s;"></div>
+        <div class="particle absolute bottom-12 right-[15%] w-2 h-2 bg-purple-400/20 rounded-full" style="animation-delay: 1.4s;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6" data-ru="Свяжитесь с нами" data-en="Contact Us">Свяжитесь с нами</h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-ru="Готовы начать проект? Напишите нам!" data-en="Ready to start a project? Write to us!">Готовы начать проект? Напишите нам!</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider-gradient"></div>
+
+<!-- Contact Form & Info -->
+<section class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Form -->
+            <div class="glow-card rounded-2xl p-8">
+                <form id="contactForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2" data-ru="Имя" data-en="Name">Имя</label>
+                        <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-dark-700 border border-gray-700 text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400/30 outline-none transition" data-placeholder-ru="Ваше имя" data-placeholder-en="Your name" placeholder="Ваше имя">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2" data-ru="Email" data-en="Email">Email</label>
+                        <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-dark-700 border border-gray-700 text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400/30 outline-none transition" data-placeholder-ru="your@email.com" data-placeholder-en="your@email.com" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2" data-ru="Подписка" data-en="Subscription">Подписка</label>
+                        <select id="plan" class="w-full px-4 py-3 rounded-xl bg-dark-700 border border-gray-700 text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400/30 outline-none transition">
+                            <option value="" data-ru="Выберите подписку" data-en="Choose subscription">Выберите подписку</option>
+                            <option value="basic" data-ru="Базовый — $500/мес" data-en="Basic — $500/mo">Базовый — $500/мес</option>
+                            <option value="pro" data-ru="Профессиональный — $1,500/мес" data-en="Professional — $1,500/mo">Профессиональный — $1,500/мес</option>
+                            <option value="business" data-ru="Бизнес — $3,000/мес" data-en="Business — $3,000/mo">Бизнес — $3,000/мес</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2" data-ru="Сообщение" data-en="Message">Сообщение</label>
+                        <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-dark-700 border border-gray-700 text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400/30 outline-none transition resize-none" data-placeholder-ru="Расскажите о вашем проекте..." data-placeholder-en="Tell us about your project..." placeholder="Расскажите о вашем проекте..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 bg-accent-400 hover:bg-accent-500 text-white font-bold rounded-xl transition text-lg shadow-lg shadow-accent-400/25" data-ru="Отправить" data-en="Send">Отправить</button>
+                </form>
+                <div id="formSuccess" class="hidden text-center py-8">
+                    <svg class="w-16 h-16 text-green-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                    <p class="text-xl font-semibold text-white" data-ru="Отправлено!" data-en="Sent!">Отправлено!</p>
+                </div>
+            </div>
+            <!-- Contact Info -->
+            <div class="space-y-4">
+                <a href="mailto:keyona@ltdkanser.xyz" class="glow-card rounded-xl p-6 flex items-center gap-4 group block">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(99,102,241,0.15);">
+                        <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500">Email</div>
+                        <div class="text-white font-medium group-hover:text-accent-400 transition">keyona@ltdkanser.xyz</div>
+                    </div>
+                </a>
+                <a href="tel:+12566436014" class="glow-card rounded-xl p-6 flex items-center gap-4 group block">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(99,102,241,0.15);">
+                        <svg class="w-7 h-7 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500" data-ru="Телефон" data-en="Phone">Телефон</div>
+                        <div class="text-white font-medium group-hover:text-accent-400 transition">+1 (256) 643-6014</div>
+                    </div>
+                </a>
+                <a href="https://t.me/Courage121" target="_blank" class="glow-card rounded-xl p-6 flex items-center gap-4 group block">
+                    <div class="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0" style="background: rgba(99,102,241,0.15);">
+                        <svg class="w-7 h-7 text-accent-400" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500">Telegram</div>
+                        <div class="text-white font-medium group-hover:text-accent-400 transition">@Courage121</div>
+                    </div>
+                </a>
+                <div class="glow-card rounded-xl p-6">
+                    <h4 class="font-bold text-white mb-3" data-ru="Подписки" data-en="Subscriptions">Подписки</h4>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between text-gray-400">
+                            <span data-ru="Базовый" data-en="Basic">Базовый</span>
+                            <span class="text-white font-medium">$500/мес</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span data-ru="Профессиональный" data-en="Professional">Профессиональный</span>
+                            <span class="text-white font-medium">$1,500/мес</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span data-ru="Бизнес" data-en="Business">Бизнес</span>
+                            <span class="text-white font-medium">$3,000/мес</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8" style="border-top: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2024 LDTKanser. <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

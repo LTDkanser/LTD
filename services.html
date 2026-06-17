@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LDTKanser - Услуги</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' },
+                        accent: { 400: '#6366f1', 500: '#4f46e5', 600: '#4338ca' }
+                    },
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Rubik', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-card { background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.04) 100%); border: 1px solid rgba(99,102,241,0.15); transition: all 0.3s ease; }
+        .glow-card:hover { border-color: rgba(99,102,241,0.4); box-shadow: 0 0 30px rgba(99,102,241,0.1); transform: translateY(-4px); }
+        .divider-gradient { background: linear-gradient(to right, transparent, #6366f1, transparent); height: 1px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+        /* Page transitions */
+        @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { animation: pageIn 0.4s ease-out; }
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="LDTKanser" class="h-8 w-auto"><span class="text-2xl font-extrabold gradient-text tracking-tight">LDTKanser</span></a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Главная" data-en="Home" data-de="Startseite" data-tr="Ana Sayfa">Главная</a>
+                <a href="services.html" class="text-white text-sm font-medium" data-ru="Услуги" data-en="Services" data-de="Dienstleistungen" data-tr="Hizmetler">Услуги</a>
+                <a href="game-engines.html" class="text-gray-400 hover:text-white transition text-sm font-medium">Game Engines</a>
+                <a href="index.html#tariffs" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Подписки" data-en="Subscriptions" data-de="Abonnements" data-tr="Abonelikler">Подписки</a>
+                <a href="cases.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Кейсы" data-en="Cases" data-de="Fälle" data-tr="Vakalar">Кейсы</a>
+                <a href="contacts.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Контакты" data-en="Contacts" data-de="Kontakt" data-tr="İletişim">Контакты</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="contacts.html" class="hidden md:inline-flex px-5 py-2 bg-accent-400 hover:bg-accent-500 text-white text-sm font-semibold rounded-lg transition" data-ru="Начать" data-en="Get Started" data-de="Loslegen" data-tr="Başla">Начать</a>
+                <div class="relative">
+                    <button id="langToggle" class="px-3 py-1.5 border border-accent-400/40 text-accent-400 rounded-lg hover:bg-accent-400/10 transition text-sm font-semibold">🇺🇸 English</button>
+                    <div id="langDropdown" class="hidden absolute right-0 top-full mt-2 py-2 w-40 rounded-xl shadow-2xl z-50" style="background: rgba(18,18,26,0.98); border: 1px solid rgba(99,102,241,0.2); backdrop-filter: blur(20px);">
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-accent-400 bg-accent-400/20 transition hover:bg-accent-400/10" data-lang="en">🇺🇸 English</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="ru">🇷🇺 Русский</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="pt-32 pb-16 relative overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+        <img src="hero-bg.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(18,18,26,0.85) 100%);"></div>
+        <div class="particle absolute top-20 left-[15%] w-2 h-2 bg-accent-400/30 rounded-full" style="animation-delay: 0.5s;"></div>
+        <div class="particle absolute bottom-20 right-[20%] w-1.5 h-1.5 bg-purple-400/30 rounded-full" style="animation-delay: 1.5s;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6" data-ru="Наши услуги" data-en="Our Services" data-de="Unsere Dienstleistungen" data-tr="Hizmetlerimiz">Наши услуги</h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-ru="Полный цикл разработки и продвижения мобильных приложений" data-en="Full cycle of mobile app development and promotion" data-de="Voller Zyklus der mobilen App-Entwicklung und Förderung" data-tr="Mobil uygulama geliştirme ve tanıtımın tam döngüsü">Полный цикл разработки и продвижения мобильных приложений</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider-gradient"></div>
+
+<!-- Services Detail -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Service 1 -->
+            <div class="glow-card rounded-2xl p-8">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: rgba(99,102,241,0.15);">
+                    <svg class="w-8 h-8 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4" data-ru="Разработка приложений" data-en="App Development" data-de="App-Entwicklung" data-tr="Uygulama Geliştirme">Разработка приложений</h3>
+                <p class="text-gray-400 mb-6" data-ru="Создаём мобильные приложения для iOS и Android. Используем React Native, Flutter, Swift, Kotlin. От идеи до запуска в App Store и Google Play." data-en="We create mobile apps for iOS and Android. Using React Native, Flutter, Swift, Kotlin. From idea to App Store and Google Play launch." data-de="Wir erstellen mobile Apps für iOS und Android. Mit React Native, Flutter, Swift, Kotlin. Von der Idee bis zum Launch im App Store und Google Play." data-tr="iOS ve Android için mobil uygulamalar geliştiriyoruz. React Native, Flutter, Swift, Kotlin kullanarak. Fikirden App Store ve Google Play'e kadar.">Создаём мобильные приложения для iOS и Android. Используем React Native, Flutter, Swift, Kotlin. От идеи до запуска в App Store и Google Play.</p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• <span data-ru="UI/UX дизайн" data-en="UI/UX design" data-de="UI/UX-Design" data-tr="UI/UX Tasarımı">UI/UX дизайн</span></li>
+                    <li>• <span data-ru="Нативная разработка" data-en="Native development" data-de="Native-Entwicklung" data-tr="Natif geliştirme">Нативная разработка</span></li>
+                    <li>• <span data-ru="Кроссплатформенная разработка" data-en="Cross-platform development" data-de="Cross-Platform-Entwicklung" data-tr="Çapraz platform geliştirme">Кроссплатформенная разработка</span></li>
+                    <li>• <span data-ru="Интеграция API и бэкенда" data-en="API and backend integration" data-de="API- und Backend-Integration" data-tr="API ve backend entegrasyonu">Интеграция API и бэкенда</span></li>
+                    <li>• <span data-ru="Тестирование и QA" data-en="Testing and QA" data-de="Testing und QA" data-tr="Test ve QA">Тестирование и QA</span></li>
+                </ul>
+            </div>
+            <!-- Service 2 -->
+            <div class="glow-card rounded-2xl p-8">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: rgba(139,92,246,0.15);">
+                    <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4" data-ru="Аналитика AppsFlyer" data-en="AppsFlyer Analytics" data-de="AppsFlyer-Analysen" data-tr="AppsFlyer Analitiği">Аналитика AppsFlyer</h3>
+                <p class="text-gray-400 mb-6" data-ru="Полная настройка AppsFlyer для точного отслеживания установок, событий и атрибуции. Интеграция с рекламными платформами." data-en="Full AppsFlyer setup for accurate tracking of installs, events and attribution. Integration with ad platforms." data-de="Vollständige AppsFlyer-Einrichtung für präzises Tracking von Installationen, Events und Attribuierung. Integration mit Werbeplattformen." data-tr="Kurulum, etkinlik ve atama için doğru izleme sağlayan eksiksiz AppsFlyer kurulumu. Reklam platformlarıyla entegrasyon.">Полная настройка AppsFlyer для точного отслеживания установок, событий и атрибуции. Интеграция с рекламными платформами.</p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• <span data-ru="Интеграция SDK" data-en="SDK integration" data-de="SDK-Integration" data-tr="SDK Entegrasyonu">Интеграция SDK</span></li>
+                    <li>• <span data-ru="Настройка postback" data-en="Postback setup" data-de="Postback-Einrichtung" data-tr="Postback kurulumu">Настройка postback</span></li>
+                    <li>• <span data-ru="SKAN 4.0 конфигурация" data-en="SKAN 4.0 configuration" data-de="SKAN 4.0-Konfiguration" data-tr="SKAN 4.0 yapılandırma">SKAN 4.0 конфигурация</span></li>
+                    <li>• <span data-ru="A/B тестирование" data-en="A/B testing" data-de="A/B-Testing" data-tr="A/B testi">A/B тестирование</span></li>
+                    <li>• <span data-ru="Дашборды и отчёты" data-en="Dashboards and reports" data-de="Dashboards und Berichte" data-tr="Pano ve raporlar">Дашборды и отчёты</span></li>
+                </ul>
+            </div>
+            <!-- Service 3 -->
+            <div class="glow-card rounded-2xl p-8">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: rgba(99,102,241,0.15);">
+                    <svg class="w-8 h-8 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4" data-ru="UA / Performance" data-en="UA / Performance" data-de="UA / Performance" data-tr="UA / Performance">UA / Performance</h3>
+                <p class="text-gray-400 mb-6" data-ru="Продвижение приложений через платный трафик. Масштабирование с фокусом на ROAS и LTV." data-en="App promotion through paid traffic. Scaling with focus on ROAS and LTV." data-de="App-Förderung über bezahlten Traffic. Skalierung mit Fokus auf ROAS und LTV." data-tr="Ücretli trafik üzerinden uygulama tanıtımı. ROAS ve LTV odaklı ölçeklendirme.">Продвижение приложений через платный трафик. Масштабирование с фокусом на ROAS и LTV.</p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• Facebook / Instagram Ads</li>
+                    <li>• Google Ads (UAC)</li>
+                    <li>• TikTok Ads</li>
+                    <li>• Snapchat Ads</li>
+                    <li>• <span data-ru="Оптимизация кампаний" data-en="Campaign optimization" data-de="Kampagnenoptimierung" data-tr="Kampanya optimizasyonu">Оптимизация кампаний</span></li>
+                </ul>
+            </div>
+            <!-- Service 4 -->
+            <div class="glow-card rounded-2xl p-8">
+                <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: rgba(139,92,246,0.15);">
+                    <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4" data-ru="Консалтинг" data-en="Consulting" data-de="Beratung" data-tr="Danışmanlık">Консалтинг</h3>
+                <p class="text-gray-400 mb-6" data-ru="Стратегическое консультирование по развитию мобильного продукта. Аудит текущих процессов и рекомендации." data-en="Strategic consulting on mobile product development. Audit of current processes and recommendations." data-de="Strategische Beratung zur mobilen Produktentwicklung. Audit aktueller Prozesse und Empfehlungen." data-tr="Mobil ürün geliştirme üzerine stratejik danışmanlık. Mevcut süreçlerin denetimi ve öneriler.">Стратегическое консультирование по развитию мобильного продукта. Аудит текущих процессов и рекомендации.</p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• <span data-ru="Аудит приложения" data-en="App audit" data-de="App-Audit" data-tr="Uygulama denetimi">Аудит приложения</span></li>
+                    <li>• <span data-ru="Аудит UA-процессов" data-en="UA process audit" data-de="UA-Prozess-Audit" data-tr="UA süreci denetimi">Аудит UA-процессов</span></li>
+                    <li>• <span data-ru="Рекомендации по росту" data-en="Growth recommendations" data-de="Wachstumsempfehlungen" data-tr="Büyüme önerileri">Рекомендации по росту</span></li>
+                    <li>• <span data-ru="Выбор технологий" data-en="Technology selection" data-de="Technologieauswahl" data-tr="Teknoloji seçimi">Выбор технологий</span></li>
+                    <li>• <span data-ru="План развития" data-en="Development plan" data-de="Entwicklungsplan" data-tr="Geliştirme planı">План развития</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8" style="border-top: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2024 LDTKanser. <span data-ru="Все права защищены." data-en="All rights reserved." data-de="Alle Rechte vorbehalten." data-tr="Tüm hakları saklıdır.">Все права защищены.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

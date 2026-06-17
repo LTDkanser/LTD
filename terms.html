@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LDTKanser - Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' },
+                        accent: { 400: '#6366f1', 500: '#4f46e5', 600: '#4338ca' }
+                    },
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Rubik', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+        /* Page transitions */
+        @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { animation: pageIn 0.4s ease-out; }
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="LDTKanser" class="h-8 w-auto"><span class="text-2xl font-extrabold gradient-text tracking-tight">LDTKanser</span></a>
+            <nav class="flex items-center gap-4">
+                <a href="index.html" class="text-gray-400 hover:text-white transition text-sm font-medium" id="navHome">Home</a>
+                <div class="relative">
+                    <button id="langToggle" class="px-3 py-1.5 border border-accent-400/40 text-accent-400 rounded-lg hover:bg-accent-400/10 transition text-sm font-semibold">🇺🇸 English</button>
+                    <div id="langDropdown" class="hidden absolute right-0 top-full mt-2 py-2 w-40 rounded-xl shadow-2xl z-50" style="background: rgba(18,18,26,0.98); border: 1px solid rgba(99,102,241,0.2); backdrop-filter: blur(20px);">
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-accent-400 bg-accent-400/20 transition hover:bg-accent-400/10" data-lang="en">🇺🇸 English</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="ru">🇷🇺 Русский</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Content -->
+<main class="pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-black text-white mb-8">
+            <span data-en="Terms of Service" data-ru="Пользовательское соглашение">Terms of Service</span>
+        </h1>
+        
+        <div class="rounded-2xl p-8 space-y-6" style="background: rgba(99,102,241,0.05); border: 1px solid rgba(99,102,241,0.15);">
+            <p class="text-sm text-gray-500">
+                <span data-en="Last updated: January 1, 2024" data-ru="Последнее обновление: 1 января 2024 г.">Last updated: January 1, 2024</span>
+            </p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="1. Acceptance of Terms" data-ru="1. Принятие условий">1. Acceptance of Terms</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="By accessing and using LDTKanser's mobile applications and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services." data-ru="Используя мобильные приложения и услуги LDTKanser, вы принимаете и соглашаетесь соблюдать настоящее Пользовательское соглашение. Если вы не согласны с этими условиями, пожалуйста, не используйте наши услуги.">By accessing and using LDTKanser's mobile applications and services, you accept and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="2. Description of Services" data-ru="2. Описание услуг">2. Description of Services</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="LDTKanser provides mobile application development, analytics, and user acquisition (UA) services. Our services include but are not limited to:" data-ru="LDTKanser предоставляет услуги разработки мобильных приложений, аналитики и привлечения пользователей (UA). Наши услуги включают в себя, но не ограничиваются:">LDTKanser provides mobile application development, analytics, and user acquisition (UA) services. Our services include but are not limited to:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-400">
+                <li data-en="Mobile application development for iOS and Android platforms" data-ru="Разработка мобильных приложений для платформ iOS и Android">Mobile application development for iOS and Android platforms</li>
+                <li data-en="Analytics integration and optimization (including AppsFlyer)" data-ru="Интеграция и оптимизация аналитики (включая AppsFlyer)">Analytics integration and optimization (including AppsFlyer)</li>
+                <li data-en="Performance marketing and user acquisition campaigns" data-ru="Performance маркетинг и кампании по привлечению пользователей">Performance marketing and user acquisition campaigns</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="3. User Responsibilities" data-ru="3. Обязанности пользователя">3. User Responsibilities</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="You agree to:" data-ru="Вы соглашаетесь:">You agree to:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-400">
+                <li data-en="Use our services only for lawful purposes" data-ru="Использовать наши услуги только в законных целях">Use our services only for lawful purposes</li>
+                <li data-en="Provide accurate and complete information" data-ru="Предоставлять точную и полную информацию">Provide accurate and complete information</li>
+                <li data-en="Maintain the security of your account credentials" data-ru="Поддерживать безопасность ваших учётных данных">Maintain the security of your account credentials</li>
+                <li data-en="Not attempt to disrupt or compromise our systems" data-ru="Не пытаться нарушить или скомпрометировать наши системы">Not attempt to disrupt or compromise our systems</li>
+            </ul>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="4. Intellectual Property" data-ru="4. Интеллектуальная собственность">4. Intellectual Property</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="All content, trademarks, and intellectual property associated with LDTKanser's services are owned by or licensed to us. You may not use, copy, or distribute any content from our services without prior written permission." data-ru="Весь контент, товарные знаки и интеллектуальная собственность, связанные с услугами LDTKanser, принадлежат нам или лицензированы нам. Вы не можете использовать, копировать или распространять какой-либо контент из наших услуг без предварительного письменного разрешения.">All content, trademarks, and intellectual property associated with LDTKanser's services are owned by or licensed to us. You may not use, copy, or distribute any content from our services without prior written permission.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="5. Limitation of Liability" data-ru="5. Ограничение ответственности">5. Limitation of Liability</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="LDTKanser shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services. Our total liability shall not exceed the amount paid by you for our services during the twelve (12) months preceding the claim." data-ru="LDTKanser не несёт ответственности за косвенные, случайные, специальные, косвенные или штрафные убытки, возникающие в результате использования наших услуг. Наша общая ответственность не превышает сумму, уплаченную вами за наши услуги в течение двенадцати (12) месяцев, предшествующих иску.">LDTKanser shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services. Our total liability shall not exceed the amount paid by you for our services during the twelve (12) months preceding the claim.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="6. Indemnification" data-ru="6. Возмещение убытков">6. Indemnification</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="You agree to indemnify and hold LDTKanser harmless from any claims, losses, or damages, including legal fees, resulting from your violation of these Terms or your use of our services." data-ru="Вы соглашаетесь возмещать и защищать LDTKanser от любых претензий, убытков или ущерба, включая судебные издержки, вытекающих из нарушения вами этих Условий или использования наших услуг.">You agree to indemnify and hold LDTKanser harmless from any claims, losses, or damages, including legal fees, resulting from your violation of these Terms or your use of our services.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="7. Termination" data-ru="7. Прекращение">7. Termination</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="We may terminate or suspend your access to our services at any time, without prior notice, for any reason, including without limitation if you breach these Terms." data-ru="Мы можем прекратить или приостановить ваш доступ к нашим услугам в любое время без предварительного уведомления по любой причине, включая, но не ограничиваясь, нарушение вами этих Условий.">We may terminate or suspend your access to our services at any time, without prior notice, for any reason, including without limitation if you breach these Terms.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="8. Changes to Terms" data-ru="8. Изменения в условиях">8. Changes to Terms</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of our services constitutes acceptance of the modified Terms." data-ru="Мы оставляем за собой право изменять эти Условия в любое время. Изменения вступают в силу немедленно после публикации. Продолжение использования наших услуг означает принятие изменённых Условий.">We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of our services constitutes acceptance of the modified Terms.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="9. Governing Law" data-ru="9. Применимое право">9. Governing Law</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles." data-ru="Эти Условия регулируются и толкуются в соответствии с законодательством Соединённых Штатов без учёта принципов коллизии законов.">These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
+
+            <h2 class="text-xl font-bold text-white">
+                <span data-en="10. Contact" data-ru="10. Контакты">10. Contact</span>
+            </h2>
+            <p class="text-gray-400 leading-relaxed" data-en="For questions about these Terms, please contact us at:" data-ru="По вопросам об этих Условиях, пожалуйста, свяжитесь с нами:">For questions about these Terms, please contact us at:</p>
+            <ul class="list-disc list-inside space-y-2 ml-4 text-gray-400">
+                <li>Email: <a href="mailto:keyona@ltdkanser.xyz" class="text-accent-400 hover:underline">keyona@ltdkanser.xyz</a></li>
+                <li>Phone: <a href="tel:+12566436014" class="text-accent-400 hover:underline">+1 (256) 643-6014</a></li>
+                <li>Telegram: <a href="https://t.me/Courage121" target="_blank" class="text-accent-400 hover:underline">@Courage121</a></li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="py-8" style="border-top: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2024 LDTKanser. <span data-en="All rights reserved." data-ru="Все права защищены.">All rights reserved.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

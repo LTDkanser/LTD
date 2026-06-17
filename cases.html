@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LDTKanser - Кейсы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' },
+                        accent: { 400: '#6366f1', 500: '#4f46e5', 600: '#4338ca' }
+                    },
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Rubik', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-card { background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.04) 100%); border: 1px solid rgba(99,102,241,0.15); transition: all 0.3s ease; }
+        .glow-card:hover { border-color: rgba(99,102,241,0.4); box-shadow: 0 0 30px rgba(99,102,241,0.1); transform: translateY(-4px); }
+        .divider-gradient { background: linear-gradient(to right, transparent, #6366f1, transparent); height: 1px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+        /* Page transitions */
+        @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        body { animation: pageIn 0.4s ease-out; }
+        a { transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="LDTKanser" class="h-8 w-auto"><span class="text-2xl font-extrabold gradient-text tracking-tight">LDTKanser</span></a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Главная" data-en="Home">Главная</a>
+                <a href="services.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Услуги" data-en="Services">Услуги</a>
+                <a href="game-engines.html" class="text-gray-400 hover:text-white transition text-sm font-medium">Game Engines</a>
+                <a href="index.html#tariffs" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Подписки" data-en="Subscriptions">Подписки</a>
+                <a href="cases.html" class="text-white text-sm font-medium" data-ru="Кейсы" data-en="Cases">Кейсы</a>
+                <a href="contacts.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Контакты" data-en="Contacts">Контакты</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="contacts.html" class="hidden md:inline-flex px-5 py-2 bg-accent-400 hover:bg-accent-500 text-white text-sm font-semibold rounded-lg transition" data-ru="Начать" data-en="Get Started">Начать</a>
+                <div class="relative">
+                    <button id="langToggle" class="px-3 py-1.5 border border-accent-400/40 text-accent-400 rounded-lg hover:bg-accent-400/10 transition text-sm font-semibold">🇺🇸 English</button>
+                    <div id="langDropdown" class="hidden absolute right-0 top-full mt-2 py-2 w-40 rounded-xl shadow-2xl z-50" style="background: rgba(18,18,26,0.98); border: 1px solid rgba(99,102,241,0.2); backdrop-filter: blur(20px);">
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-accent-400 bg-accent-400/20 transition hover:bg-accent-400/10" data-lang="en">🇺🇸 English</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="ru">🇷🇺 Русский</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="pt-32 pb-16 relative overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+        <img src="hero-bg.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(10,10,15,0.9) 0%, rgba(18,18,26,0.85) 100%);"></div>
+        <div class="particle absolute top-16 right-[18%] w-2 h-2 bg-pink-400/25 rounded-full" style="animation-delay: 0.3s;"></div>
+        <div class="particle absolute bottom-16 left-[12%] w-1.5 h-1.5 bg-accent-400/25 rounded-full" style="animation-delay: 1.3s;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6" data-ru="Наши кейсы" data-en="Our Cases">Наши кейсы</h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto" data-ru="Результаты, которых мы добиваемся для клиентов" data-en="Results we achieve for our clients">Результаты, которых мы добиваемся для клиентов</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider-gradient"></div>
+
+<!-- Cases -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Case 1 -->
+            <div class="glow-card rounded-2xl overflow-hidden">
+                <div class="h-48 relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                    <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(74,222,128,0.15); color: #4ade80;">+127% ROAS</div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: rgba(99,102,241,0.2); backdrop-filter: blur(10px);">
+                            <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2" data-ru="Финтех приложение" data-en="Fintech App">Финтех приложение</h3>
+                    <p class="text-gray-500 text-sm mb-4" data-ru="Мобильный банк для молодёжи. Разработка с нуля, запуск, масштабирование UA." data-en="Mobile bank for youth. Development from scratch, launch, UA scaling.">Мобильный банк для молодёжи. Разработка с нуля, запуск, масштабирование UA.</p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div><div class="text-2xl font-bold text-white">100K+</div><div class="text-xs text-gray-500" data-ru="Установок" data-en="Installs">Установок</div></div>
+                        <div><div class="text-2xl font-bold text-white">$1.2</div><div class="text-xs text-gray-500">CPI</div></div>
+                        <div><div class="text-2xl font-bold text-white">45%</div><div class="text-xs text-gray-500" data-ru="D7 удержание" data-en="D7 retention">D7 удержание</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Case 2 -->
+            <div class="glow-card rounded-2xl overflow-hidden">
+                <div class="h-48 relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e, #0f3460);">
+                    <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(251,191,36,0.15); color: #fbbf24;">ROI x4.2</div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: rgba(139,92,246,0.2); backdrop-filter: blur(10px);">
+                            <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2" data-ru="E-commerce платформа" data-en="E-commerce Platform">E-commerce платформа</h3>
+                    <p class="text-gray-500 text-sm mb-4" data-ru="Маркетплейс для молодых брендов. Кроссплатформенное приложение." data-en="Marketplace for young brands. Cross-platform app.">Маркетплейс для молодых брендов. Кроссплатформенное приложение.</p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div><div class="text-2xl font-bold text-white">500K+</div><div class="text-xs text-gray-500" data-ru="Пользователей" data-en="Users">Пользователей</div></div>
+                        <div><div class="text-2xl font-bold text-white">x4.2</div><div class="text-xs text-gray-500">ROAS</div></div>
+                        <div><div class="text-2xl font-bold text-white">$8.5</div><div class="text-xs text-gray-500">LTV</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Case 3 -->
+            <div class="glow-card rounded-2xl overflow-hidden">
+                <div class="h-48 relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a2e, #1a0a2e);">
+                    <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(99,102,241,0.15); color: #6366f1;">D30: 45%</div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: rgba(99,102,241,0.2); backdrop-filter: blur(10px);">
+                            <svg class="w-10 h-10 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2" data-ru="Health & Fitness" data-en="Health & Fitness">Health & Fitness</h3>
+                    <p class="text-gray-500 text-sm mb-4" data-ru="Приложение для тренировок и питания. Высокое удержание." data-en="Workout and nutrition app. High retention.">Приложение для тренировок и питания. Высокое удержание.</p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div><div class="text-2xl font-bold text-white">200K+</div><div class="text-xs text-gray-500" data-ru="MAU" data-en="MAU">MAU</div></div>
+                        <div><div class="text-2xl font-bold text-white">45%</div><div class="text-xs text-gray-500" data-ru="D30 retention" data-en="D30 retention">D30 retention</div></div>
+                        <div><div class="text-2xl font-bold text-white">$12.5</div><div class="text-xs text-gray-500">LTV</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Case 4 -->
+            <div class="glow-card rounded-2xl overflow-hidden">
+                <div class="h-48 relative overflow-hidden" style="background: linear-gradient(135deg, #0a1628, #1a1a2e);">
+                    <div class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-bold" style="background: rgba(74,222,128,0.15); color: #4ade80;">CPI $0.8</div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 rounded-2xl flex items-center justify-center" style="background: rgba(139,92,246,0.2); backdrop-filter: blur(10px);">
+                            <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white mb-2" data-ru=" Gaming (Casual)" data-en="Gaming (Casual)">Gaming (Casual)</h3>
+                    <p class="text-gray-500 text-sm mb-4" data-ru="Казуальная мобильная игра. Запуск и масштабирование через Facebook и TikTok." data-en="Casual mobile game. Launch and scaling via Facebook and TikTok.">Казуальная мобильная игра. Запуск и масштабирование через Facebook и TikTok.</p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div><div class="text-2xl font-bold text-white">1M+</div><div class="text-xs text-gray-500" data-ru="Установок" data-en="Installs">Установок</div></div>
+                        <div><div class="text-2xl font-bold text-white">$0.8</div><div class="text-xs text-gray-500">CPI</div></div>
+                        <div><div class="text-2xl font-bold text-white">35%</div><div class="text-xs text-gray-500" data-ru="D1 retention" data-en="D1 retention">D1 retention</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8" style="border-top: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2024 LDTKanser. <span data-ru="Все права защищены." data-en="All rights reserved.">Все права защищены.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

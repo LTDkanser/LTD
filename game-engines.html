@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>LDTKanser - Game Engines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: { 900: '#0a0a0f', 800: '#12121a', 700: '#1a1a25', 600: '#222230' },
+                        accent: { 400: '#6366f1', 500: '#4f46e5', 600: '#4338ca' }
+                    },
+                    fontFamily: { rubik: ['Rubik', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Rubik', sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #6366f1 0%, #a78bfa 50%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .glow-card { background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, rgba(139,92,246,0.04) 100%); border: 1px solid rgba(99,102,241,0.15); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .glow-card:hover { border-color: rgba(99,102,241,0.4); box-shadow: 0 0 30px rgba(99,102,241,0.15); transform: translateY(-6px) scale(1.02); }
+        .divider-gradient { background: linear-gradient(to right, transparent, #6366f1, transparent); height: 1px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 20px rgba(99,102,241,0.2); } 50% { box-shadow: 0 0 40px rgba(99,102,241,0.4); } }
+        .anim-fade-up { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+        .anim-fade-left { animation: fadeInLeft 0.8s ease-out forwards; opacity: 0; }
+        .anim-fade-right { animation: fadeInRight 0.8s ease-out forwards; opacity: 0; }
+        .anim-scale { animation: scaleIn 0.6s ease-out forwards; opacity: 0; }
+        .anim-float { animation: float 4s ease-in-out infinite; }
+        .anim-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        .shimmer-bg { background: linear-gradient(90deg, transparent 0%, rgba(99,102,241,0.05) 50%, transparent 100%); background-size: 200% 100%; animation: shimmer 3s infinite; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-dark-900 text-gray-300">
+
+<!-- Header -->
+<header class="fixed top-0 left-0 right-0 z-50" style="background: rgba(10,10,15,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+            <a href="index.html" class="flex items-center gap-2"><img src="logo.png" alt="LDTKanser" class="h-8 w-auto"><span class="text-2xl font-extrabold gradient-text tracking-tight">LDTKanser</span></a>
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="index.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Главная" data-de="Startseite" data-tr="Ana Sayfa" data-en="Home">Home</a>
+                <a href="services.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Услуги" data-de="Dienstleistungen" data-tr="Hizmetler" data-en="Services">Services</a>
+                <a href="game-engines.html" class="text-white text-sm font-medium">Game Engines</a>
+                <a href="index.html#tariffs" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Подписки" data-de="Abonnements" data-tr="Abonelikler" data-en="Subscriptions">Subscriptions</a>
+                <a href="cases.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Кейсы" data-de="Fälle" data-tr="Vakalar" data-en="Cases">Cases</a>
+                <a href="contacts.html" class="text-gray-400 hover:text-white transition text-sm font-medium" data-ru="Контакты" data-de="Kontakt" data-tr="İletişim" data-en="Contacts">Contacts</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="contacts.html" class="hidden md:inline-flex px-5 py-2 bg-accent-400 hover:bg-accent-500 text-white text-sm font-semibold rounded-lg transition">
+                    <span data-ru="Начать" data-de="Loslegen" data-tr="Başla" data-en="Get Started">Get Started</span>
+                </a>
+                <div class="relative">
+                    <button id="langToggle" class="px-3 py-1.5 border border-accent-400/40 text-accent-400 rounded-lg hover:bg-accent-400/10 transition text-sm font-semibold">🇺🇸 English</button>
+                    <div id="langDropdown" class="hidden absolute right-0 top-full mt-2 py-2 w-40 rounded-xl shadow-2xl z-50" style="background: rgba(18,18,26,0.98); border: 1px solid rgba(99,102,241,0.2); backdrop-filter: blur(20px);">
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-accent-400 bg-accent-400/20 transition hover:bg-accent-400/10" data-lang="en">🇺🇸 English</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="ru">🇷🇺 Русский</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="de">🇩🇪 Deutsch</button>
+                        <button class="lang-option w-full text-left px-4 py-2 text-sm text-gray-400 transition hover:bg-accent-400/10" data-lang="tr">🇹🇷 Türkçe</button>
+                    </div>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-400 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden" style="background: rgba(10,10,15,0.98); border-top: 1px solid rgba(99,102,241,0.1);">
+        <div class="px-4 py-4 space-y-3">
+            <a href="index.html" class="block text-gray-400 hover:text-white transition py-2" data-ru="Главная" data-de="Startseite" data-tr="Ana Sayfa" data-en="Home">Home</a>
+            <a href="services.html" class="block text-gray-400 hover:text-white transition py-2" data-ru="Услуги" data-de="Dienstleistungen" data-tr="Hizmetler" data-en="Services">Services</a>
+            <a href="game-engines.html" class="block text-white transition py-2">Game Engines</a>
+            <a href="index.html#tariffs" class="block text-gray-400 hover:text-white transition py-2" data-ru="Подписки" data-de="Abonnements" data-tr="Abonelikler" data-en="Subscriptions">Subscriptions</a>
+            <a href="cases.html" class="block text-gray-400 hover:text-white transition py-2" data-ru="Кейсы" data-de="Fälle" data-tr="Vakalar" data-en="Cases">Cases</a>
+            <a href="contacts.html" class="block text-gray-400 hover:text-white transition py-2" data-ru="Контакты" data-de="Kontakt" data-tr="İletişim" data-en="Contacts">Contacts</a>
+        </div>
+    </div>
+</header>
+
+<!-- Hero -->
+<section class="pt-32 pb-16 relative overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="hero-bg.jpg" alt="" class="w-full h-full object-cover" loading="lazy">
+        <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(10,10,15,0.92) 0%, rgba(18,18,26,0.88) 100%);"></div>
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-400/8 rounded-full blur-3xl anim-float"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/8 rounded-full blur-3xl anim-float" style="animation-delay: 1s;"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 anim-fade-up">Game Engines</h1>
+            <p class="text-xl text-gray-500 max-w-2xl mx-auto anim-fade-up delay-1" data-ru="Базовое программное обеспечение для разработки и запуска видеоигр, с которыми мы работаем" data-en="Core software for developing and launching video games — we work with these too" data-de="Grundlegende Software zur Entwicklung und Veröffentlichung von Videospielen — damit arbeiten wir auch" data-tr="Video oyunları geliştirmek ve başlatmak için temel yazılım — biz de bununla çalışıyoruz">Базовое программное обеспечение для разработки и запуска видеоигр, с которыми мы работаем</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider-gradient"></div>
+
+<!-- Game Engines Detail -->
+<section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Unreal Engine -->
+            <div class="glow-card rounded-2xl overflow-hidden anim-fade-up delay-1">
+                <div class="h-56 relative overflow-hidden bg-dark-700 flex items-center justify-center p-8 shimmer-bg">
+                    <img src="dsfdsf.png" alt="Unreal Engine" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-white mb-3">Unreal Engine</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4" data-ru="Мощный движок от Epic Games для AAA-игр и реалистичной 3D-графики. Используется в играх如 Fortnite, Gears of War и многих других." data-en="Powerful engine by Epic Games for AAA games and realistic 3D graphics. Used in games like Fortnite, Gears of War and many others." data-de="Leistungsstarker Engine von Epic Games für AAA-Spiele und realistische 3D-Grafik. Verwendet in Spielen wie Fortnite, Gears of War und vielen anderen." data-tr="Epic Games'ten AAA oyunları ve gerçekçi 3D grafikler için güçlü motor. Fortnite, Gears of War ve diğer birçok oyunda kullanılır.">Мощный движок от Epic Games для AAA-игр и реалистичной 3D-графики.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-400 rounded-full"></span> <span data-ru="Nanite — геометрия нового поколения" data-en="Nanite — next-gen geometry" data-de="Nanite — Geometrie der nächsten Generation" data-tr="Nanite — bir sonraki nesil geometri">Nanite — геометрия нового поколения</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span> <span data-ru="Lumen — глобальное освещение" data-en="Lumen — global illumination" data-de="Lumen — Globale Beleuchtung" data-tr="Lumen — küresel aydınlatma">Lumen — глобальное освещение</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-pink-400 rounded-full"></span> <span data-ru="Blueprint — визуальное программирование" data-en="Blueprint — visual scripting" data-de="Blueprint — visuelle Skripterstellung" data-tr="Blueprint — görsel betik oluşturma">Blueprint — визуальное программирование</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></span> <span data-ru="Cross-platform (PC, Console, Mobile)" data-en="Cross-platform (PC, Console, Mobile)" data-de="Cross-Platform (PC, Konsole, Mobil)" data-tr="Çapraz platform (PC, Konsol, Mobil)">Cross-platform (PC, Console, Mobile)</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- CryEngine -->
+            <div class="glow-card rounded-2xl overflow-hidden anim-fade-up delay-2">
+                <div class="h-56 relative overflow-hidden bg-dark-700 flex items-center justify-center p-8 shimmer-bg">
+                    <img src="dssdsd906x1024.png" alt="CryEngine" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-white mb-3">CryEngine</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4" data-ru="Движок от Crytek с передовой физикой и графикой. Известен по играм Crysis и Far Cry." data-en="Engine by Crytek with advanced physics and graphics. Known from Crysis and Far Cry games." data-de="Engine von Crytek mit fortschrittlicher Physik und Grafik. Bekannt aus Crysis- und Far-Cry-Spielen." data-tr="Gelişmiş fizik ve grafiklere sahip Crytek motoru. Crysis ve Far Cry oyunlarından bilinir.">Движок от Crytek с передовой физикой и графикой.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-400 rounded-full"></span> <span data-ru="Продвинутая физика разрушений" data-en="Advanced destruction physics" data-de="Fortgeschrittene Zerstörungsphysik" data-tr="Gelişmiş yıkım fiziği">Продвинутая физика разрушений</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span> <span data-ru="Реалистичная водная симуляция" data-en="Realistic water simulation" data-de="Realistische Wassersimulation" data-tr="Gerçekçi su simülasyonu">Реалистичная водная симуляция</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-pink-400 rounded-full"></span> <span data-ru="Sandbox — открытый редактор" data-en="Sandbox — open editor" data-de="Sandbox — offener Editor" data-tr="Sandbox — açık düzenleyici">Sandbox — открытый редактор</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></span> <span data-ru="Реалистичная графика" data-en="Photorealistic graphics" data-de="Fotorealistische Grafik" data-tr="Fotorealistik grafikler">Реалистичная графика</span></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Unity -->
+            <div class="glow-card rounded-2xl overflow-hidden anim-fade-up delay-3">
+                <div class="h-56 relative overflow-hidden bg-dark-700 flex items-center justify-center p-8 shimmer-bg">
+                    <img src="unity-906x1024.png" alt="Unity" class="max-h-full max-w-full object-contain group-hover:scale-110 transition-transform duration-500 relative z-10">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold text-white mb-3">Unity</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4" data-ru="Универсальный движок для мобильных, инди и кроссплатформенных игр. Самый популярный движок для мобильных игр." data-en="Versatile engine for mobile, indie and cross-platform games. Most popular engine for mobile games." data-de="Vielseitiger Engine für Mobile-, Indie- und Cross-Platform-Spiele. Beliebtester Engine für Mobile-Spiele." data-tr="Mobil, bağımsız ve çapraz platform oyunları için çok yönlü motor. Mobil oyunlar için en popüler motor.">Универсальный движок для мобильных, инди и кроссплатформенных игр.</p>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-accent-400 rounded-full"></span> <span data-ru="C# — основной язык" data-en="C# — primary language" data-de="C# — Hauptsprache" data-tr="C# — birincil dil">C# — основной язык</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-400 rounded-full"></span> <span data-ru="Asset Store — marketplace" data-en="Asset Store — marketplace" data-de="Asset Store — Marktplatz" data-tr="Asset Store — pazar yeri">Asset Store — marketplace</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-pink-400 rounded-full"></span> <span data-ru="2D и 3D разработка" data-en="2D and 3D development" data-de="2D- und 3D-Entwicklung" data-tr="2D ve 3D geliştirme">2D и 3D разработка</span></li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-400 rounded-full"></span> <span data-ru="Мобилы + WebGL + AR/VR" data-en="Mobile + WebGL + AR/VR" data-de="Mobil + WebGL + AR/VR" data-tr="Mobil + WebGL + AR/VR">Мобилы + WebGL + AR/VR</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="mt-16 anim-fade-up delay-4">
+            <h2 class="text-2xl font-bold text-white mb-6 text-center" data-ru="Сравнение движков" data-en="Engine Comparison" data-de="Engine-Vergleich" data-tr="Motor Karşılaştırması">Сравнение движков</h2>
+            <div class="glow-card rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-700/50">
+                                <th class="text-left p-4 text-gray-400 font-medium" data-ru="Характеристика" data-en="Feature" data-de="Funktion" data-tr="Özellik">Характеристика</th>
+                                <th class="text-center p-4 text-accent-400 font-medium">Unreal Engine</th>
+                                <th class="text-center p-4 text-purple-400 font-medium">CryEngine</th>
+                                <th class="text-center p-4 text-pink-400 font-medium">Unity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700/30 hover:bg-white/5 transition">
+                                <td class="p-4 text-gray-400" data-ru="Язык" data-en="Language" data-de="Sprache" data-tr="Dil">Язык</td>
+                                <td class="p-4 text-center text-white">C++ / Blueprints</td>
+                                <td class="p-4 text-center text-white">C++ / C#</td>
+                                <td class="p-4 text-center text-white">C#</td>
+                            </tr>
+                            <tr class="border-b border-gray-700/30 hover:bg-white/5 transition">
+                                <td class="p-4 text-gray-400" data-ru="Лучше всего для" data-en="Best for" data-de="Am besten für" data-tr="En iyi için">Лучше всего для</td>
+                                <td class="p-4 text-center text-white" data-ru="AAA-игры" data-en="AAA games" data-de="AAA-Spiele" data-tr="AAA oyunları">AAA-игры</td>
+                                <td class="p-4 text-center text-white" data-ru="Фотореализм" data-en="Photorealism" data-de="Photorealismus" data-tr="Fotorealizm">Фотореализм</td>
+                                <td class="p-4 text-center text-white" data-ru="Мобилы / Инди" data-en="Mobile / Indie" data-de="Mobil / Indie" data-tr="Mobil / Bağımsız">Мобилы / Инди</td>
+                            </tr>
+                            <tr class="border-b border-gray-700/30 hover:bg-white/5 transition">
+                                <td class="p-4 text-gray-400" data-ru="Цена" data-en="Price" data-de="Preis" data-tr="Fiyat">Цена</td>
+                                <td class="p-4 text-center text-white" data-ru="5% от дохода" data-en="5% royalty" data-de="5% Lizenzgebühr" data-tr="5% royalty">5% от дохода</td>
+                                <td class="p-4 text-center text-white" data-ru="Лицензия" data-en="License" data-de="Lizenz" data-tr="Lisans">Лицензия</td>
+                                <td class="p-4 text-center text-white" data-ru="Free — $2,040/год" data-en="Free — $2,040/yr" data-de="Kostenlos — $2.040/Jahr" data-tr="Ücretsiz — $2.040/yıl">Free — $2,040/год</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 text-gray-400" data-ru="Графика" data-en="Graphics" data-de="Grafik" data-tr="Grafik">Графика</td>
+                                <td class="p-4 text-center text-white" data-ru="Топ-уровень" data-en="Top-tier" data-de="Spitze" data-tr="Üst düzey">Топ-уровень</td>
+                                <td class="p-4 text-center text-white" data-ru="Фотореализм" data-en="Photorealistic" data-de="Fotorealistisch" data-tr="Fotorealistik">Фотореализм</td>
+                                <td class="p-4 text-center text-white" data-ru="Хороший" data-en="Good" data-de="Gut" data-tr="İyi">Хороший</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-8" style="border-top: 1px solid rgba(99,102,241,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-gray-600 text-sm">&copy; 2024 LDTKanser. <span data-ru="Все права защищены." data-en="All rights reserved." data-de="Alle Rechte vorbehalten." data-tr="Tüm hakları saklıdır.">Все права защищены.</span></p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale').forEach(el => {
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
